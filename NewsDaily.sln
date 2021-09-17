@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsDaily", "NewsDaily.csproj", "{9BF0429B-CD83-46EE-894A-BF638D03DCCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsDaily.Core", "..\NewsDaily\NewsDaily.Core\NewsDaily.Core.csproj", "{7A6289D5-4D32-49DF-8410-A4464B955C4F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9BF0429B-CD83-46EE-894A-BF638D03DCCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BF0429B-CD83-46EE-894A-BF638D03DCCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BF0429B-CD83-46EE-894A-BF638D03DCCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BF0429B-CD83-46EE-894A-BF638D03DCCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A6289D5-4D32-49DF-8410-A4464B955C4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A6289D5-4D32-49DF-8410-A4464B955C4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A6289D5-4D32-49DF-8410-A4464B955C4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A6289D5-4D32-49DF-8410-A4464B955C4F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9C4A627A-3919-4D91-B1CF-8363909ACC8A}
+	EndGlobalSection
+EndGlobal
