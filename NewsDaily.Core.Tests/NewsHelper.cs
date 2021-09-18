@@ -11,7 +11,7 @@ namespace NewsDaily.Core.Tests.PublisherTests
     public class NewsHelper
     {
 
-        public IList<INewsItem> Generate4PTINews(long startId,short newsCategory)
+        public IList<INewsItem> Generate4PTINews(long startId, short newsCategory)
         {
             IList<INewsItem> listOfNews = new List<INewsItem>
             {
@@ -29,14 +29,14 @@ namespace NewsDaily.Core.Tests.PublisherTests
             return newsItem;
         }
 
-        public IList<IAdItem> GeneratePTIAds()
+        public IList<IAdItem> Generate4PTIAds(long startId, short newsCategory)
         {
             IList<IAdItem> listOfNews = new List<IAdItem>
             {
-                GetAdItem(1, "[PTI Ad] Ambuja Cement", "India's top selling Cement", Convert.ToByte(NewsCategory.Political)),
-                GetAdItem(2, "[PTI Ad] Tata Motors", "New Tata Safari Launched!", Convert.ToByte(NewsCategory.Sports)),
-                GetAdItem(3, "[PTI Ad] ManKind Pharma", "India's leading Pharma company", Convert.ToByte(NewsCategory.Home)),
-                GetAdItem(4, "[PTI Ad] Amazon Diwali Sale", "Big billion sale around the corner", Convert.ToByte(NewsCategory.Entertainment))
+                GetAdItem(startId++, "[PTI Ad] Ambuja Cement", "India's top selling Cement", newsCategory),
+                GetAdItem(startId++, "[PTI Ad] Tata Motors", "New Tata Safari Launched!", newsCategory),
+                GetAdItem(startId++, "[PTI Ad] ManKind Pharma", "India's leading Pharma company", newsCategory),
+                GetAdItem(startId++, "[PTI Ad] Amazon Diwali Sale", "Big billion sale around the corner", newsCategory)
             };
             return listOfNews;
         }

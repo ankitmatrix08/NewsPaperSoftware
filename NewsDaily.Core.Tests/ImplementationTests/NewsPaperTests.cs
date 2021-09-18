@@ -9,7 +9,7 @@ using System.Text;
 using Xunit;
 using static NewsDaily.Core.Enums.ApplicationEnums;
 
-namespace NewsDaily.Core.Tests
+namespace NewsDaily.Core.Tests.ImplementationTests
 {
     public class NewsPaperTests
     {

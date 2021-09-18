@@ -8,7 +8,7 @@ namespace NewsDaily.Core.Interface
         long Id { get; }
         List<T> ItemList { get; set; }
         int MaxItemSize { get; }
-        double MaxNewsVsAdRatio { get; }
+        int MaxNewsVsAdRatio { get; }
         ApplicationEnums.NewsCategory NewsCategory { get; } 
         int GetMaxItemSize();
         bool CanAddNewItem(T item);

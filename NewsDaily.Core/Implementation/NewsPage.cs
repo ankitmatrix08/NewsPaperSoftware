@@ -14,7 +14,7 @@ namespace NewsDaily.Core.Implementation
 
         public int MaxItemSize { get; }
 
-        public double MaxNewsVsAdRatio { get; }
+        public int MaxNewsVsAdRatio { get; }
 
         public ApplicationEnums.NewsCategory NewsCategory { get; }
 
@@ -30,7 +30,14 @@ namespace NewsDaily.Core.Implementation
         //ToDo: Need to look at the GCD logic for Ratios
         public bool CanAddNewAd()
         {
-            return (ItemList.Select(_ => _.GetType() == typeof(INewsItem)).Count() / ItemList.Select(_ => _.GetType() == typeof(IAdItem)).Count()) < MaxNewsVsAdRatio;
+            if (ItemList.Count() < MaxItemSize)
+            {
+                var newsCount = ItemList.Count(_ => _.GetType() == typeof(News));
+                var adCount = ItemList.Count(_ => _.GetType() == typeof(Ad));
+                int ratio = (newsCount / MaxNewsVsAdRatio);
+                return ratio > adCount;
+            }
+            return false;
         }
 
         public bool CanAddNewItem(Interface.IItem item)

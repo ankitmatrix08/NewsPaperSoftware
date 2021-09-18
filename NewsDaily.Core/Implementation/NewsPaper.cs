@@ -64,7 +64,7 @@ namespace NewsDaily.Core.Implementation
             {
                 if (Pages?.LastOrDefault(_ => _.NewsCategory == value.GetNewsCategory())?.CanAddNewItem(value) == true)
                     isProcessed = Pages?.LastOrDefault(_ => _.NewsCategory == value.GetNewsCategory())?.AddItem(value);
-                else
+                else if (value.Priority != Enums.ApplicationEnums.NewsPriority.Ad)
                 {
                     Pages.Add(new NewsPage<IItem>(Pages.Count + 1, value.GetNewsCategory()));
                     isProcessed = Pages?.LastOrDefault(_ => _.NewsCategory == value.GetNewsCategory())?.AddItem(value);
