@@ -2,50 +2,87 @@
 using NewsDaily.Core.Interface;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
 namespace NewsDaily.Core.Implementation
 {
     public class NewsPage<IItem> : INewsPage<Interface.IItem>, IComparable<NewsPage<Interface.IItem>>
     {
-        public long Id => throw new NotImplementedException();
+        public long Id { get; }
 
-        public List<Interface.IItem> ItemList { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public List<Interface.IItem> ItemList { get; set; }
 
-        public int MaxItemSize => throw new NotImplementedException();
+        public int MaxItemSize { get; }
 
-        public double MaxNewsVsAdRatio => throw new NotImplementedException();
+        public double MaxNewsVsAdRatio { get; }
 
-        public ApplicationEnums.NewsCategory NewsCategory => throw new NotImplementedException();
+        public ApplicationEnums.NewsCategory NewsCategory { get; }
 
-        public bool AddItem(Interface.IItem item)
+        public NewsPage(long id, ApplicationEnums.NewsCategory newsCategory)
         {
-            throw new NotImplementedException();
+            Id = id;
+            ItemList = new List<Interface.IItem>();
+            NewsCategory = newsCategory;
+            MaxItemSize = 3;
+            MaxNewsVsAdRatio = 6 / 2;
         }
 
+        //ToDo: Need to look at the GCD logic for Ratios
         public bool CanAddNewAd()
         {
-            throw new NotImplementedException();
+            return (ItemList.Select(_ => _.GetType() == typeof(INewsItem)).Count() / ItemList.Select(_ => _.GetType() == typeof(IAdItem)).Count()) < MaxNewsVsAdRatio;
         }
 
         public bool CanAddNewItem(Interface.IItem item)
         {
-            throw new NotImplementedException();
+            return ItemList.Count() < MaxItemSize;
         }
 
+        //Logic
+        // 1. Check if the Page has space to add an Item
+        // 2. If the item can be added directly Add, Else if by replacing an Ad item then Add
+        // 3. Otherwise return false
         public bool CanAddNewNews(Interface.IItem item)
         {
-            throw new NotImplementedException();
-        }
+            bool returnVal = false;
+            if (ItemList.Count() < MaxItemSize)
+                returnVal = true;
+            else if (ItemList.Any(_ => _.GetType() == typeof(Ad)) && item.GetPriority() == ApplicationEnums.NewsPriority.Breaking)
+            {
+                ItemList.Remove(ItemList.First(_ => _.GetType() == typeof(Ad)));
+                returnVal = true;
+            }
 
-        public int CompareTo(NewsPage<Interface.IItem> other)
-        {
-            throw new NotImplementedException();
+            return returnVal;
         }
 
         public int GetMaxItemSize()
         {
-            throw new NotImplementedException();
+            return MaxItemSize;
+        }
+
+        public int CompareTo(NewsPage<Interface.IItem> other)
+        {
+            if (other == null) return 1;
+            var otherPage = other;
+            return Id.CompareTo(otherPage.Id);
+        }
+
+        public bool AddItem(Interface.IItem item)
+        {
+            bool hasSucceed = false;
+            if (item is INewsItem && CanAddNewNews(item))
+            {
+                hasSucceed = true;
+                ItemList.Add(item);
+            }
+            else if (item is IAdItem && CanAddNewAd())
+            {
+                hasSucceed = true;
+                ItemList.Add(item);
+            }
+
+            return hasSucceed;
         }
     }
 }
