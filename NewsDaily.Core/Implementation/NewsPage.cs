@@ -23,7 +23,7 @@ namespace NewsDaily.Core.Implementation
             Id = id;
             ItemList = new List<Interface.IItem>();
             NewsCategory = newsCategory;
-            MaxItemSize = 3;
+            MaxItemSize = 8;
             MaxNewsVsAdRatio = 6 / 2;
         }
 
