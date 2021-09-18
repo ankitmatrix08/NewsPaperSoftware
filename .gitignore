@@ -7,3 +7,7 @@
 /NewsDaily.Core/bin/Debug/netcoreapp2.1
 /NewsDaily.Core/obj
 /obj
+/NewsDaily/bin/Debug/netcoreapp2.1
+/NewsDaily/obj
+/NewsDaily.Core.Tests/bin/Debug/netcoreapp2.1
+/NewsDaily.Core.Tests/obj

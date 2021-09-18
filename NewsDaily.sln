@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsDaily", "NewsDaily.csproj", "{9BF0429B-CD83-46EE-894A-BF638D03DCCB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewsDaily", "NewsDaily\NewsDaily.csproj", "{9BF0429B-CD83-46EE-894A-BF638D03DCCB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsDaily.Core", "..\NewsDaily\NewsDaily.Core\NewsDaily.Core.csproj", "{7A6289D5-4D32-49DF-8410-A4464B955C4F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewsDaily.Core", "NewsDaily.Core\NewsDaily.Core.csproj", "{7A6289D5-4D32-49DF-8410-A4464B955C4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsDaily.Core.Tests", "NewsDaily.Core.Tests\NewsDaily.Core.Tests.csproj", "{BA10BF7B-9EB1-4A62-AD2F-DD4B4E59E51D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{7A6289D5-4D32-49DF-8410-A4464B955C4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A6289D5-4D32-49DF-8410-A4464B955C4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A6289D5-4D32-49DF-8410-A4464B955C4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA10BF7B-9EB1-4A62-AD2F-DD4B4E59E51D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA10BF7B-9EB1-4A62-AD2F-DD4B4E59E51D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA10BF7B-9EB1-4A62-AD2F-DD4B4E59E51D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA10BF7B-9EB1-4A62-AD2F-DD4B4E59E51D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
